@@ -3,7 +3,7 @@ import requests
 
 
 start = arrow.get("2021-05-15")
-
+auth_key = input("Enter your own API key: ")
 response = requests.get(
   "https://api.stormglass.io/v2/weather/point",
   params={
@@ -14,7 +14,7 @@ response = requests.get(
     'end': start.shift(days=1).to("UTC").timestamp(),
   },
   headers={
-    "Authorization": "86178ece-56c0-11ec-b9d3-0242ac130002-86178f5a-56c0-11ec-b9d3-0242ac130002"
+    "Authorization": auth_key
   }
 )
 
