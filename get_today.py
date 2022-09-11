@@ -14,6 +14,7 @@ today = today[0]
 
 # On regarde si l'on a déjà les données d'aujourd'hui
 if today not in completed_days:
+    auth_key = input("Enter your own API key: ")
     # Si on a pas encore les données
     # On fait une requête à l'API Stormglass
     response = requests.get(
@@ -25,7 +26,7 @@ if today not in completed_days:
             "params": "windSpeed",
         },
         headers={
-            "Authorization": "86178ece-56c0-11ec-b9d3-0242ac130002-86178f5a-56c0-11ec-b9d3-0242ac130002"
+            "Authorization": auth_key
         }
     )
 
